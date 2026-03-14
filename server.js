@@ -145,10 +145,9 @@ app.post("/api/generate", async (req, res) => {
 
     // ส่งกลับทั้ง text และ model ที่ตอบจริง
     return res.status(200).json({
-      ok: true,
+      ...result.data,
       modelUsed: result.model,
-      text: result.text,
-      raw: result.data
+      text: result.text
     });
   } catch (error) {
     console.error("[Server error]", error);
